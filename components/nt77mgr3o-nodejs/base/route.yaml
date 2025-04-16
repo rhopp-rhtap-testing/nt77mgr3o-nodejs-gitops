@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: nt77mgr3o-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: nt77mgr3o-nodejs 
+  name: nt77mgr3o-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: nt77mgr3o-nodejs
+    weight: 100 
